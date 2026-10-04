@@ -9,7 +9,7 @@ React e o Trabalho de Conclusão de Curso em equipe.
 
 | Módulo | Conteúdo | Tecnologias | Período |
 |---|---|---|---|
-| [Módulo 1](modulo_1) | Lógica de programação; ideação e criatividade | C++, Canvas do Problema, pitch | — |
+| [Módulo 1](modulo_1) | Lógica de programação; ideação e criatividade | C++, Canvas do Problema, pitch | ago/2025 – dez/2025 |
 | [Módulo 2](modulo_2) | Banco de dados; Programação Orientada a Objetos; back-end com Spring Boot | SQL Server (T-SQL), Java 21, Maven, Spring Boot, Spring Data JPA, Swing | fev/2026 – ago/2026 |
 | [Módulo 3](modulo_3) | Programação de aplicativos (front-end) | HTML, CSS, JavaScript, Bootstrap, React + Vite | ago/2026 – out/2026 |
 | [Módulo 4](modulo_4) | Ainda sem conteúdo publicado | — | — |

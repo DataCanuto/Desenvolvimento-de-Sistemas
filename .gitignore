@@ -1,0 +1,8 @@
+# Executáveis compilados (C++): versionar só o código-fonte
+*.exe
+*.o
+*.out
+modulo_1/logica-de-programacao/*/*
+!modulo_1/logica-de-programacao/*/*.cpp
+!modulo_1/logica-de-programacao/*/*.bat
+!modulo_1/logica-de-programacao/*/*.txt

@@ -1,8 +1,8 @@
 # Módulo 1 — Lógica de Programação e Ideação
 
-Primeiro módulo do curso de Desenvolvimento de Sistemas (SENAI CIMATEC): fundamentos de
-lógica de programação em **C++** e uma introdução a ideação, criatividade e apresentação de
-soluções.
+Primeiro módulo do curso de Desenvolvimento de Sistemas (SENAI CIMATEC), de agosto a dezembro
+de 2025: fundamentos de lógica de programação em **C++** e uma introdução a ideação,
+criatividade e apresentação de soluções.
 
 ## Lógica de programação (`logica-de-programacao/`)
 
