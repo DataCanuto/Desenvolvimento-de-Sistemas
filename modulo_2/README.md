@@ -4,13 +4,11 @@ Segundo módulo do curso de Desenvolvimento de Sistemas (SENAI CIMATEC), de feve
 de 2026. Foco no back-end: modelagem e consultas em banco de dados relacional, Programação
 Orientada a Objetos com Java e construção de APIs REST com Spring Boot.
 
-Cada parte é um repositório Git próprio, incluído aqui como pasta:
-
-| Pasta | Repositório | Período |
-|---|---|---|
-| [`banco-de-dados`](https://github.com/DataCanuto/BancoDeDados) | DataCanuto/BancoDeDados | fev/2026 – abr/2026 |
-| [`JavaPOO`](https://github.com/DataCanuto/pooJava) | DataCanuto/pooJava | mar/2026 – ago/2026 |
-| [`SpringBootProjects`](https://github.com/DataCanuto/SpringBootProjects) | DataCanuto/SpringBootProjects | mai/2026 – ago/2026 |
+| Pasta | Período |
+|---|---|
+| [`banco-de-dados/`](banco-de-dados) | fev/2026 – abr/2026 |
+| [`JavaPOO/`](JavaPOO) | mar/2026 – ago/2026 |
+| [`SpringBootProjects/`](SpringBootProjects) | mai/2026 – ago/2026 |
 
 ## 1. Banco de Dados (`banco-de-dados/`)
 
@@ -38,7 +36,7 @@ Projetos que demonstram os pilares da Orientação a Objetos e recursos do Java 
 | `TratamentoErro` | Exceções |
 | `MyFirstMavenProject` | Primeiro projeto com Maven |
 | `JavaSwingProjects` | Interfaces gráficas com Swing (calculadora, cadastro de pessoas) |
-| `Sudoku` | Jogo de Sudoku em Java ([repositório próprio](https://github.com/DataCanuto/Sudoku)) |
+| `Sudoku` | Jogo de Sudoku em Java |
 
 ## 3. Spring Boot (`SpringBootProjects/`)
 
@@ -57,7 +55,7 @@ Evolução de controllers simples até APIs REST com camadas e persistência:
 | 9 | `apicimatec` | Evolução da API (clientes, passaportes, pedidos) |
 | 10 | `cafeteria-web-api` | Gestão de cafeteria (clientes, funcionários, produtos, pedidos e pagamentos) |
 
-Detalhes e instruções de execução estão no README de cada repositório.
+Detalhes e instruções de execução estão no [README do SpringBootProjects](SpringBootProjects/README.md).
 
 ## Competências desenvolvidas
 

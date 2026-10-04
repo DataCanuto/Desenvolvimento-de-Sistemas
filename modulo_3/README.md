@@ -4,8 +4,7 @@ Terceiro módulo do curso de Desenvolvimento de Sistemas (SENAI CIMATEC), de ago
 2026. Foco no front-end: estrutura e layout com HTML e CSS, interatividade com JavaScript,
 componentes com Bootstrap e a primeira aplicação em React.
 
-A pasta `programacao-de-aplicativos/` é um repositório Git próprio:
-[DataCanuto/HTML_PROJECT](https://github.com/DataCanuto/HTML_PROJECT).
+Os projetos estão em [`programacao-de-aplicativos/`](programacao-de-aplicativos).
 
 ## Conteúdo (`programacao-de-aplicativos/`)
 
@@ -50,7 +49,6 @@ A pasta `programacao-de-aplicativos/` é um repositório Git próprio:
 | Pasta | Tema |
 |---|---|
 | `biografia` | Site pessoal de biografia, com galeria, contato e área administrativa |
-| `portfolio-musico` | Portfólio de músico, com fotos e vídeos |
 | `hackaton-2026` | Material do Hackathon SENAI 2026 (edital) |
 
 ## Evolução dentro do módulo

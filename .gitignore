@@ -6,3 +6,24 @@ modulo_1/logica-de-programacao/*/*
 !modulo_1/logica-de-programacao/*/*.cpp
 !modulo_1/logica-de-programacao/*/*.bat
 !modulo_1/logica-de-programacao/*/*.txt
+
+# Build e IDE (Java/Maven/Gradle, Node)
+target/
+out/
+bin/
+build/
+.gradle/
+.idea/
+*.iml
+.vscode/
+node_modules/
+dist/
+*.class
+*.jar
+
+# portfolio-musico: vídeos e mídias pesadas (fotos/vídeos de eventos com crianças)
+modulo_3/programacao-de-aplicativos/portfolio-musico/img/musicalizacao/
+*.mp4
+*.MP4
+*.mov
+*.MOV

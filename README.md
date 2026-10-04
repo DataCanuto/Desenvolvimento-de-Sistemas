@@ -24,17 +24,16 @@ lógica, vetores,    modelagem   pilares da POO,   REST, JPA,          layout, D
 funções, structs    e consultas  coleções, streams camadas, padrões   Bootstrap        e estado      UX, IA, rede social
 ```
 
-## Repositórios incluídos
+## Estrutura
 
-Algumas pastas são repositórios Git próprios, mantidos separadamente e incluídos aqui:
-
-| Pasta | Repositório |
+| Pasta | Conteúdo |
 |---|---|
-| `modulo_2/banco-de-dados` | [DataCanuto/BancoDeDados](https://github.com/DataCanuto/BancoDeDados) |
-| `modulo_2/JavaPOO` | [DataCanuto/pooJava](https://github.com/DataCanuto/pooJava) |
-| `modulo_2/SpringBootProjects` | [DataCanuto/SpringBootProjects](https://github.com/DataCanuto/SpringBootProjects) |
-| `modulo_3/programacao-de-aplicativos` | [DataCanuto/HTML_PROJECT](https://github.com/DataCanuto/HTML_PROJECT) |
-| `florahub-team-repository` | [DataCanuto/florahub-team-repository](https://github.com/DataCanuto/florahub-team-repository) |
+| [`modulo_1/`](modulo_1) | Lógica de programação (C++) e ideação |
+| [`modulo_2/banco-de-dados/`](modulo_2/banco-de-dados) | Scripts SQL Server |
+| [`modulo_2/JavaPOO/`](modulo_2/JavaPOO) | Projetos de Programação Orientada a Objetos em Java |
+| [`modulo_2/SpringBootProjects/`](modulo_2/SpringBootProjects) | APIs REST com Spring Boot |
+| [`modulo_3/programacao-de-aplicativos/`](modulo_3/programacao-de-aplicativos) | Front-end: HTML, CSS, JavaScript, Bootstrap e React |
+| [`florahub-team-repository`](https://github.com/DataCanuto/florahub-team-repository) | TCC em equipe (repositório próprio, incluído como submódulo) |
 
 ## Autor
 

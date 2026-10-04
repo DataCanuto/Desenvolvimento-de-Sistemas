@@ -1,15 +1,3 @@
 [submodule "florahub-team-repository"]
 	path = florahub-team-repository
 	url = https://github.com/DataCanuto/florahub-team-repository.git
-[submodule "modulo_2/banco-de-dados"]
-	path = modulo_2/banco-de-dados
-	url = https://github.com/DataCanuto/BancoDeDados.git
-[submodule "modulo_2/JavaPOO"]
-	path = modulo_2/JavaPOO
-	url = https://github.com/DataCanuto/pooJava.git
-[submodule "modulo_2/SpringBootProjects"]
-	path = modulo_2/SpringBootProjects
-	url = https://github.com/DataCanuto/SpringBootProjects.git
-[submodule "modulo_3/programacao-de-aplicativos"]
-	path = modulo_3/programacao-de-aplicativos
-	url = https://github.com/DataCanuto/HTML_PROJECT.git
