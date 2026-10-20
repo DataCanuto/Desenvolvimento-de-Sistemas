@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notas alunos</title>
+</head>
+
+<body>
+
+    <main>
+        <form id="form-aluno">
+            <label>Nome do aluno</label>
+            <input id="nome-aluno" type="text" placeholder="Ex: Maria Silva">
+            <label>Nota</label>
+            <input id="nota-aluno" type="number" placeholder="Ex: 8.5" step="0.01">
+
+            <button type="submit" id="add-btn">Adcionar a lista</button>
+
+        </form>
+
+        <div>
+            <section>
+                <table id="alunos-cadastrados">
+                    <thead>
+                        <h2>Alunos Cadastrados</h2>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Nota</th>
+                            <th>Situação</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+
+                </table>
+
+                <div class="relatorio"></div>
+            </section>
+            <script src="app.js">
+            </script>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planilha Automatizada</title>
+</head>
+
+<body>
+
+    <header></header>
+
+    <main>
+
+
+        <section>
+            <form>
+
+                <label>Tipo de Tabela</label>
+
+                <select id="tipo-tabela" required>
+                    <option value="1">Valor de Causa Cliente</option>
+                    <option value="2">Valor de Depósito Cliente</option>
+                </select>
+
+                <input id="valor" type="number" step="0.01">
+
+
+
+                <label>% sobre valor atual</label>
+
+                <select id="percentual-valor" required>
+                    <option value="1">3</option>
+                    <option value="2">4</option>
+                    <option value="3">outro...</option>
+                </select>
+
+                <label>Desconto IR</label>
+
+                <input id="desconto-ir" type="number" step="0.01" required>
+
+                <label>IR Recupere</label>
+                <input id="recupere-ir" type="number" step="0.01" required>
+
+                <button type="submit">Gerar planilha</button> </form>
+        </section>
+
+        <section>
+            <table>
+                <thead>
+                    <th id="retorno-tipo-tabela"></th>
+                    <th id="retorno-valor-percentual"></th>
+                    <th id="desconto-ir"></th>
+                    <th id="valor-liquido"></th>
+                    <th id="valor-recupere"></th>
+                    <th id="valor-final"></th>
+                </thead>
+
+                <tbody></tbody>
+
+            </table>
+        </section>
+
+    </main>
+
+    <footer></footer>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

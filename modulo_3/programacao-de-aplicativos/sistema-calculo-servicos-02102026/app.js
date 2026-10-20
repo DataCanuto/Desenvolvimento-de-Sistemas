@@ -15,7 +15,7 @@ const resultado_desconto_output = document.getElementById('resultado-desconto-se
 function calcularServico(servico, quantidade) {
     let valor_final = 0;
 
-    switch(servico) {
+    switch (servico) {
         case '1':
             valor_final = formatacao_de_computador * quantidade;
             break;
@@ -45,8 +45,8 @@ function calcularDesconto(valor) {
 form_servicos.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const servico = document.getElementById('servico').value;
-    const quantidade = parseFloat(quantidade_input.value);
+    const servico = servico_select.value;
+    const quantidade = parseInt(quantidade_input.value);
 
 
 
