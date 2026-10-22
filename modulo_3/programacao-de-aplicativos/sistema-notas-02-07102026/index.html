@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <main>
+
+        <section>
+
+            <form id="alunos-form">
+                <label>Nome</label>
+                <input type="text" name="nome-aluno" id="nome-aluno" placeholder="Digite o nome do aluno">
+                <label>Nota: </label>
+                <input type="number" name="nota-aluno" id="nota-aluno" placeholder="Digite a nota do aluno" min="0"
+                    max="10" step="0.1">
+
+                <button type="submit" id="btn-add">Adcionar aluno</button>
+            </form>
+
+
+
+            <div id="alunos">
+                <h2>Análise de Dados</h2>
+
+                <button type="button" id="btn-total">Calcular total de alunos na turma</button>
+                <p id="total-alunos"></p>
+
+
+                <button type="button" id="btn-media">Calcular média da turma</button>
+                <p id="resultado-media"></p>
+
+                <button type="button" id="btn-maior">Maior nota</button>
+                <p id="resultado-maior"></p>
+
+                <button type="button" id="btn-menor">Menor nota</button>
+                <p id="resultado-menor"></p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Nota</th>
+                            <th>Situação</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
