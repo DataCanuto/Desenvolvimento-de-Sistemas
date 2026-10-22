@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livraria App</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+    <head>Livraria</head>
+
+    <body>
+        <nav>
+            <img alt="logo"></img>
+
+            <ul id="nav-items">
+                <li><a>Livros</a></li>
+                <li><a>Autores</a></li>
+                <li><a>Categorias</a></li>
+                <li><a>Cadastrar Livro</a></li>
+                <li><a>Registrar Aluguel</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section>
+                <h1>Livraria do Saber</h1>
+            </section>
+
+            <div id="livros">
+                <table>
+                    <thead id="livros-thead">
+                        <tr>
+                            <th>ISBN</th>
+                            <th>TÍTULO</th>
+                            <th>AUTOR</th>
+                            <th>CATEGORIA</th>
+                            
+                        </tr>
+                    </thead>
+
+                    <tbody id="livros-tbody"></tbody>
+                </table>
+            </div>
+            <div id="autores"></div>
+            <div id="categorias"></div>
+            <div id="cadastrar-livro">
+                <form id="form-cadastrar-livro" class="form">
+                    <h2 class="form-title">Cadastro</h2>
+                
+                    <label>ISBN</label>
+                    <input id="isbn-txt" type="number" class="input" placeholder="6198..." required>
+                    <label>TÍTULO</label>
+                    <input id="titulo-txt" type="text" class="input" placeholder="Desenvolvedor Full Stack..." required>
+                    <label>AUTOR</label>
+                    <input id="autor-txt" type="text" class="input" placeholder="Pedro Canuto..." required>
+                    <label>CATEGORIA</label>
+                    <input id="categoria-txt" type="text" class="input" placeholder="Ficção..." required>
+
+                    <button type="submit" id="submit-btn" class="action-btn">Cadastrar</button>
+                </form>
+            </div>
+            <div id="registrar-aluguel">
+                <form id="form-alugar-livro" class="form">
+                    <h2>Alugar Livro</h2>
+
+                    <label>ISBN</label>
+                    <select id="isbn-selector">
+                        <option></option>
+                    </select>
+                    <label>TITULO</label>
+                    <select id="titulo-selector">
+                        <option></option>
+                    </select>
+                    <label>AUTOR</label>
+                    <select id="autor-selector">
+                        <option></option>
+                    </select>
+                    <label>CATEGORIA</label>
+                    <select id="categoria-selector">
+                        <option></option>
+                    </select>
+                </form>
+            </div>
+        </main>
+        <script src="./index.js"></script>
+    </body>
+    
+</body>
+</html>
