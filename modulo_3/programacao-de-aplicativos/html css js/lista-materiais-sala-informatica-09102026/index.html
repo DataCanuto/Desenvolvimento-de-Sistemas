@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala de Informática</title>
+
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: top;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-sizing: border-box;
+            padding: 0.75rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar #logo {
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar #navitems {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: space-between;
+            box-sizing: border-box;
+            width: 70%;
+
+        }
+
+        #cadastrar-produto-form {
+            display: flex;
+            flex-direction: column;
+            background-color: #1f2020;
+            width: 40%;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+            font-family: system-ui, sans-serif;
+        }
+
+        #cadastrar-produto-form h2 {
+            margin: 0 0 1.5rem;
+            text-align: center;
+            color: #1d1f1d;
+            background-color: #cfd8cf;
+            border-radius: 10px;
+            padding: 0.5rem;
+        }
+
+        #cadastrar-produto-form label {
+            margin-bottom: 0.4rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #aab8aa;
+        }
+
+        #cadastrar-produto-form input {
+            margin-bottom: 0.4rem;
+            font-size: 1rem;
+            font-weight: 300;
+            border: 1px solid #cfd8cf;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            color: #212421;
+        }
+
+        #cadastrar-produto-form button {
+            display: flex;
+            flex-direction: row;
+            margin-top: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            width: fit-content;
+            background-color: orangered;
+            border: 1px solid #cfd8cf;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            color: #2f3e2f;
+        }
+
+        #cadastrar-produto-form button:hover {
+            background-color: rgb(242, 255, 0);
+            transform: scale(1.2);
+        }
+
+        #cadastrar-produto-form button:active {
+            background-color: rgb(255, 255, 255);
+            transform: scale(0.98);
+        }
+
+        #total-itens-number,
+        #total-produtos {
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <navbar class="navbar">
+            <h2 id="logo">Sala de Informática</h2>
+            <ul id="navitems">
+                <li><a href="#btn-adcionar">Adcionar</a></li>
+                <li><a href='#btn-remover'>Remover</a></li>
+                <li><a href="#btn-ver-qtd">Verificar quantidade</a></li>
+                <li><a href="#btn-exibir">Exibir todos</a></li>
+
+            </ul>
+        </navbar>
+    </header>
+
+    <main>
+        <section id="adcionar">
+
+
+            <form class="form" id="cadastrar-produto-form">
+
+                <h2>Adcionar item a lista</h2>
+
+                <label>Produto: </label>
+                <input id="produto-input" type="text" required placeholder="Computador de mesa...">
+                <label>Quantidade: </label>
+                <input id="quantidade-input" type="number" step="1" required
+                    placeholder="Informe a quantidade do produto selecionado">
+
+                <button type="submit" id="btn-adcionar">Adcionar</button>
+
+                <button type="button" id="btn-remover">Remover último item</button>
+
+                <button type="button" id="btn-ver-qtd">Ver total de itens cadastrados</button>
+
+                <button type="button" id="btn-exibir">Exibir todos os itens cadastrados</button>
+
+
+
+                <p id="total-itens-text"></p>
+                <p id="total-itens-number"></p>
+                <p id="text-total-produtos"></p>
+                <p id="total-produtos"></p>
+
+            </form>
+        </section>
+
+        <section>
+            <h2>Itens cadastrados</h2>
+
+            <table id="produtos-table" class="table">
+                <thead>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Quantidade</th>
+                </thead>
+
+                <tbody id="produtos-table"></tbody>
+            </table>
+        </section>
+    </main>
+
+</body>
+
+
+
+<script>
+
+
+    const produtoInput = document.querySelector('#produto-input')
+    const quantidadeInput = document.querySelector('#quantidade-input')
+
+    const form = document.querySelector('.form')
+    const tbody = document.querySelector('#produtos-table')
+
+    const textTotal = document.querySelector('#total-itens-text')
+    const numberTotal = document.querySelector('#total-itens-number')
+
+    const textTotalProdutos = document.querySelector('#text-total-produtos')
+    const totalProdutos = document.querySelector('#total-produtos')
+
+    const btnAdcionar = document.querySelector('#btn-adcionar')
+    const btnRemover = document.querySelector('#btn-remover')
+    const btnVerTotal = document.querySelector('#btn-ver-qtd')
+    const btnExibir = document.querySelector('#btn-exibir')
+
+
+    const produtos = []
+
+    function salvarProduto(produto, qtd) {
+        produtos.push({
+            produto: produto,
+            qtd: parseInt(qtd)
+        })
+    }
+
+    function verificarEstoque(produtos) {
+        if (produtos.length > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function clear() {
+        produtoInput.value = '',
+            quantidadeInput.value = ''
+    }
+
+    function removerUltimo(produtos) {
+        return produtos.pop();
+    }
+
+    function adicionarLinhaTabela(produto) {
+
+        const tr = document.createElement('tr');
+
+        const tdProduto = document.createElement('td');
+        tdProduto.textContent = produto.produto;
+        tr.appendChild(tdProduto);
+
+        const tdQuantidade = document.createElement('td');
+        tdQuantidade.textContent = produto.qtd;
+        tr.appendChild(tdQuantidade);
+
+        tbody.appendChild(tr);
+    }
+
+    function exibirTodos() {
+        tbody.replaceChildren();
+        produtos.forEach(adicionarLinhaTabela);
+    }
+
+    function somaProdutos(produtos) {
+        return produtos.reduce((total, produto) => total + produto.qtd, 0);
+    }
+
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const produto = produtoInput.value;
+        const quantidade = quantidadeInput.value;
+
+        salvarProduto(produto, quantidade);
+
+        clear();
+    });
+
+    btnVerTotal.addEventListener('click', function () {
+
+        if (!verificarEstoque(produtos)) {
+            alert('Não há produtos cadastrados');
+            return;
+        } else {
+            textTotal.textContent = 'Quantidade de produtos registrados: '
+            numberTotal.textContent = produtos.length
+
+            textTotalProdutos.textContent = `Total de unidades no sistema: `
+            totalProdutos.textContent = somaProdutos(produtos)
+
+        }
+    })
+
+    btnExibir.addEventListener('click', () => {
+        if (!verificarEstoque(produtos)) {
+            alert('Não há produtos cadastrados');
+            return;
+        } else {
+            exibirTodos();
+        }
+    })
+
+
+    btnRemover.addEventListener('click', exigirEstoque(() => {
+
+        if (!verificarEstoque(produtos)) {
+            alert('Não há produtos cadastrados');
+            return;
+        } else {
+            removerUltimo(produtos);
+            exibirTodos();
+            numberTotal.textContent = produtos.length
+
+            totalProdutos.textContent = somaProdutos(produtos)
+        }
+    }))
+
+
+
+
+
+
+
+</script>
+
+</html>
