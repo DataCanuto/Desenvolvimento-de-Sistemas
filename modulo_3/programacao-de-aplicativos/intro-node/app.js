@@ -5,7 +5,9 @@ const port = 3000;
 const rotas = {
     "/": "Olá mundo",
     "/livros": "Entrei na rota livros",
-    "/autores": "Entrei na rota autores"
+    "/autores": "Entrei na rota autores",
+    "/categorias": "Consulte as categorias literárias.",
+    "/emprestimos": "Histórico de empréstimos da biblioteca",
 }
 
 const server = http.createServer((req, res) => {
