@@ -4,6 +4,16 @@ import { buscarLivroPorId, buscarAutorPorId } from "./service.js";
 
 const app = express();
 
+const db = require('./db/connection.js')
+
+//DB
+db.authenticate().then(() => {
+    console.log("Conectado com sucesso");
+}).catch(err => {
+    console.log("Erro ao conectar ", err)
+})
+
+//APP
 app.get("/", (req, res) => {
     res.status(200).send("Node JS")
 })
