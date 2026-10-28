@@ -1,0 +1,13 @@
+1. O Node.js permite executar JavaScript fora do navegador. Nesta aplicação, ele executa o servidor que recebe as requisições da API e envia respostas aos clientes.
+
+2. Node.js é o ambiente de execução do JavaScript no servidor. Express é uma biblioteca/framework que funciona sobre o Node.js e facilita a criação do servidor e das rotas da API.
+
+3. O array simula um banco de dados porque guarda os registros de livros e autores e permite operações como consultar, adicionar, alterar e remover dados. Porém, ele mantém os dados apenas na memória, não em armazenamento permanente.
+
+4. O método GET é usado para solicitar e consultar recursos de uma API, como a lista de livros ou um livro específico. Em geral, ele não deve alterar os dados.
+
+6. O código HTTP 200 indica que a requisição foi processada com sucesso. O código 404 indica que o recurso solicitado não foi encontrado.
+
+7. O Nodemon monitora os arquivos do projeto e reinicia automaticamente o servidor quando detecta alterações. Isso evita ter que parar e iniciar o servidor manualmente a cada mudança.
+
+8. Não. Os dados alterados no array ficam na memória do processo. Quando o servidor é encerrado, essas alterações são perdidas; ao iniciar novamente, o array volta aos valores definidos inicialmente no código. Para manter alterações entre execuções, seria necessário usar armazenamento persistente, como um banco de dados ou arquivo.
