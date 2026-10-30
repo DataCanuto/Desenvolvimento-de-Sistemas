@@ -1,0 +1,59 @@
+#box-1 {
+    background-color: green;
+    width: 400px;
+    height: 200px;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+#box-1::first-letter {
+    font-size: large;
+    color: white;
+}
+
+#box-2 {
+    background-color: blue;
+    width: 400px;
+    height: 200px;
+    border: solid 20px black;
+    box-sizing: border-box;
+}
+
+#box-2::selection {
+    background-color: red;
+    color: white;
+    width: 400px;
+    height: 200px;
+    border: solid 20px black;
+    box-sizing: border-box;
+}
+
+#box-2::first-line {
+    text-decoration: underline;
+    text-decoration-color: yellow;
+    text-decoration-thickness: 5px;
+    text-transform: uppercase;
+    width: 400px;
+    height: 200px;
+    border: solid 20px black;
+    box-sizing: border-box;
+}
+
+#box-2::after {
+    content: " After";
+}
+
+#box-3 {
+    background-color: yellow;
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#box-3:hover {
+    background-color: pink;
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+}

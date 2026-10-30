@@ -58,3 +58,5 @@ As rotas que recebem JSON usam o middleware `express.json()`. Por exemplo, para 
 Os endpoints de livros e autores ainda trabalham com arrays em memória. Portanto, os dados alterados durante a execução não são persistidos e voltam aos valores iniciais quando o processo é reiniciado. A configuração do SQLite é um primeiro passo e ainda não substitui esses arrays nas operações da API.
 
 A API também está em desenvolvimento: o cadastro de autores ainda precisa ser concluído, e as rotas por ID não tratam todos os casos de identificadores inexistentes.
+
+Como o projeto está configurado como módulo ES (`"type": "module"`), a conexão SQLite escrita com `require`/`module.exports` ainda precisa ser adaptada para esse formato antes de a inicialização do servidor funcionar sem esse conflito.
