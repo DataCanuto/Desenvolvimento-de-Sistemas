@@ -1,39 +1,42 @@
-//import { livros, autores } from "./db.js";
+import { livros, autores } from "./db.js";
 
-import {Livro, Autor } from "./models/index.js";
+//import { Livro, Autor } from "./models/index.js";
 
-/*
------------ Funções direcionadas aos mockups de arrays ----------
+
+
 export function buscarLivroPorId(id) {
     return livros.findIndex(livro => livro.id === Number(id));
 }
 
 export function buscarAutorPorId(id) {
     return autores.findIndex(autor => autor.id === Number(id))
-}*/
+}
+
+/*
+// -------------- Funções direcionadas ao banco de dados -------------
 
 // -------------- Livros -------------
-export async function listarLivros(){
+export async function listarLivros() {
     return Livro.findAll();
 }
 
-export async function buscarLivroPorId(id){
+export async function buscarLivroPorId(id) {
     return Livro.findByPk(id);
 }
 
-export async function criarLivro(dados){
+export async function criarLivro(dados) {
     return Livro.create(dados);
 }
 
-export async function atualizarLivro(id,dados){
+export async function atualizarLivro(id, dados) {
     const livro = await Livro.findByPk(id);
-    if(!livro) return null;
+    if (!livro) return null;
     return livro.update(dados);
 }
 
-export async function deletarLivro(id){
+export async function deletarLivro(id) {
     const livro = await Livro.findByPk(id);
-    if(!livro) return null;
+    if (!livro) return null;
     await livro.destroy();
     return livro;
 }
@@ -44,7 +47,7 @@ export async function deletarLivro(id){
 
 
 // -------------- Autores -------------
-export async function listarAutores(){
+export async function listarAutores() {
     return Autor.findAll();
 }
 
@@ -62,9 +65,9 @@ export async function atualizarAutor(id, dados) {
     return autor.update(dados);
 }
 
-export async function deletarAutor(id){
+export async function deletarAutor(id) {
     const autor = await Autor.findByPk(id);
-    if(!autor) return null;
+    if (!autor) return null;
     autor.destroy();
     return autor;
-}
+}*/
