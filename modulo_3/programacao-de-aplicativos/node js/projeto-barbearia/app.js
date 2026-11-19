@@ -14,6 +14,7 @@ app.get("/agendamentos", (req, res) => {
 
 app.get("/agendamentos/:id", (req, res) => {
     const index = buscarAgendamentoPorId(req.params.id);
+    
     res.status(200).json(listarAgendamentos()[index])
 })
 

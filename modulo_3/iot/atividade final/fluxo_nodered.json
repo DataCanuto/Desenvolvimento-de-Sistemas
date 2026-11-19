@@ -1,0 +1,223 @@
+[
+    {
+        "id": "flow_iot_hivemq",
+        "type": "tab",
+        "label": "IoT ESP32 - HiveMQ",
+        "disabled": false,
+        "info": "Fluxo para receber dados de temperatura e umidade do ESP32 via MQTT (HiveMQ local)."
+    },
+    {
+        "id": "broker_hivemq_local",
+        "type": "mqtt-broker",
+        "name": "HiveMQ Local",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "NodeRED_Pedro_001",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "mqtt_in_tempdata",
+        "type": "mqtt in",
+        "z": "flow_iot_hivemq",
+        "name": "Receber Tempdata",
+        "topic": "Tempdata",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "broker_hivemq_local",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 180,
+        "wires": [
+            ["parse_csv_function", "debug_raw_msg"]
+        ]
+    },
+    {
+        "id": "parse_csv_function",
+        "type": "function",
+        "z": "flow_iot_hivemq",
+        "name": "Parsear CSV (temp,hum,)",
+        "func": "// Payload esperado: \"25.30,60.50,\"\nvar payload = msg.payload;\n\nif (typeof payload !== 'string') {\n    payload = payload.toString();\n}\n\n// Remove trailing comma and split\nvar parts = payload.replace(/,$/, '').split(',');\n\nif (parts.length >= 2) {\n    var temp = parseFloat(parts[0]);\n    var hum  = parseFloat(parts[1]);\n    \n    if (!isNaN(temp) && !isNaN(hum)) {\n        // Mensagem de temperatura\n        var msgTemp = { payload: temp, topic: 'temperatura' };\n        // Mensagem de umidade\n        var msgHum  = { payload: hum,  topic: 'umidade' };\n        // Mensagem completa\n        var msgAll  = {\n            payload: {\n                temperatura: temp,\n                umidade: hum,\n                timestamp: new Date().toISOString()\n            }\n        };\n        return [[msgTemp, msgHum], [msgAll]];\n    }\n}\n\n// Dados inválidos\nnode.warn('Payload inválido: ' + payload);\nreturn null;",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 180,
+        "wires": [
+            ["debug_temp_hum"],
+            ["debug_json_completo"]
+        ]
+    },
+    {
+        "id": "debug_raw_msg",
+        "type": "debug",
+        "z": "flow_iot_hivemq",
+        "name": "Raw MQTT",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "debug_temp_hum",
+        "type": "debug",
+        "z": "flow_iot_hivemq",
+        "name": "Temp / Umidade separados",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "debug_json_completo",
+        "type": "debug",
+        "z": "flow_iot_hivemq",
+        "name": "JSON completo",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "inject_led_on",
+        "type": "inject",
+        "z": "flow_iot_hivemq",
+        "name": "Acender LED",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Tempdata",
+        "payload": "ON",
+        "payloadType": "str",
+        "x": 150,
+        "y": 320,
+        "wires": [
+            ["mqtt_out_control"]
+        ]
+    },
+    {
+        "id": "inject_led_off",
+        "type": "inject",
+        "z": "flow_iot_hivemq",
+        "name": "Apagar LED",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Tempdata",
+        "payload": "OFF",
+        "payloadType": "str",
+        "x": 150,
+        "y": 380,
+        "wires": [
+            ["mqtt_out_control"]
+        ]
+    },
+    {
+        "id": "inject_servo_90",
+        "type": "inject",
+        "z": "flow_iot_hivemq",
+        "name": "Servo 90°",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Tempdata",
+        "payload": "90",
+        "payloadType": "str",
+        "x": 150,
+        "y": 440,
+        "wires": [
+            ["mqtt_out_control"]
+        ]
+    },
+    {
+        "id": "mqtt_out_control",
+        "type": "mqtt out",
+        "z": "flow_iot_hivemq",
+        "name": "Publicar Comando",
+        "topic": "Tempdata",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "broker_hivemq_local",
+        "x": 400,
+        "y": 380,
+        "wires": []
+    }
+]

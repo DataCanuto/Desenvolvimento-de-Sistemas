@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {"type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 4.7, "left": 0, "attrs": {}},
+    {"type": "wokwi-dht22", "id": "dht1", "top": -124.5, "left": 230, "attrs": {}},
+    {"type": "wokwi-led", "id": "led1", "top": -118.8, "left": 368.6, "attrs": {"color": "red"}},
+    {"type": "wokwi-resistor", "id": "r1", "top": -60, "left": 376, "attrs": {"value": "220"}},
+    {"type": "wokwi-servo", "id": "servo1", "top": 122.8, "left": 230, "attrs": {}},
+    {"type": "wokwi-neopixel-matrix", "id": "matrix1", "top": 240, "left": 230, "attrs": {"cols": "16", "rows": "1"}}
+  ],
+  "connections": [
+    ["esp:GND.1", "dht1:GND", "black", []],
+    ["esp:3V3", "dht1:VCC", "red", []],
+    ["esp:12", "dht1:SDA", "green", []],
+    ["r1:1", "led1:A", "yellow", []],
+    ["esp:26", "r1:2", "yellow", []],
+    ["esp:GND.1", "led1:K", "black", []],
+    ["esp:GND.1", "servo1:GND", "black", []],
+    ["esp:5V", "servo1:V+", "red", []],
+    ["esp:2", "servo1:PWM", "orange", []],
+    ["esp:GND.1", "matrix1:GND", "black", []],
+    ["esp:5V", "matrix1:VCC", "red", []],
+    ["esp:4", "matrix1:DIN", "green", []]
+  ],
+  "dependencies": {}
+}
